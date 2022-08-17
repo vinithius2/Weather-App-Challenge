@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Weather-App-Challenge</string>
+    <string name="london">London</string>
 </resources>
