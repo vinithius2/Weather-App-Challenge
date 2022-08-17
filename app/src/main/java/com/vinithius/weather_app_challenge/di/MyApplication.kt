@@ -38,6 +38,7 @@ fun retrofit(): Retrofit {
         var request = chain.request()
         val url = request.url.newBuilder()
             .addQueryParameter("appid", privateKey)
+            .addQueryParameter("units", "metric")
             .build()
         request = request.newBuilder().url(url).build()
         chain.proceed(request)

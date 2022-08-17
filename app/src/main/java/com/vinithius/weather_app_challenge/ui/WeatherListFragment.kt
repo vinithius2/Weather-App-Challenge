@@ -36,12 +36,15 @@ class WeatherListFragment : Fragment() {
         layoutManager.orientation = LinearLayoutManager.VERTICAL
         binding.recyclerViewWeather.layoutManager = layoutManager
 
-        viewModel.weatherLocation.observe(viewLifecycleOwner) { weather_location ->
+        viewModel.listWeatherLocation.observe(viewLifecycleOwner) { weather_location ->
             weather_location?.let {
                 adapter = WeatherListAdapter(it)
                 binding.recyclerViewWeather.adapter = adapter.apply {
                     onCallBackClickDetail = { id ->
-                        // TODO: Some action to Detail
+                        with(viewModel) {
+                            resetIdWheater()
+                            setIdWheater(id)
+                        }
                         findNavController().navigate(
                             R.id.action_listWeatherFragment_to_detailWeatherFragment,
                         )

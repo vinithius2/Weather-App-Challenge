@@ -29,9 +29,13 @@ class WeatherListAdapter(
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(weather: BaseWeather) {
-            binding.textLocation.text = weather.name
-            binding.root.setOnClickListener {
-                onCallBackClickDetail?.invoke(weather.id)
+            with(binding) {
+                textLocation.text = weather.name
+                textDegrees.text = weather.main.temp.toString()
+                textWeatherName.text = "${weather.main.humidity.toString()}%"
+                root.setOnClickListener {
+                    onCallBackClickDetail?.invoke(weather.id)
+                }
             }
         }
 

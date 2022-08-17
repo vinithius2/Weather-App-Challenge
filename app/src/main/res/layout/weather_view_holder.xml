@@ -3,18 +3,144 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_holder"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="3dp"
+        android:layout_marginVertical="4dp"
+        app:cardCornerRadius="8dp">
 
-        <TextView
-            android:id="@+id/text_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="@string/london" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/text_degrees"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/black_light"
+                android:textSize="60sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="85" />
+
+            <TextView
+                android:id="@+id/text_degrees_symbol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/blue_light"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/text_degrees"
+                app:layout_constraintLeft_toRightOf="@+id/text_degrees"
+                app:layout_constraintTop_toTopOf="@+id/text_degrees"
+                tools:text="º" />
+
+            <TextView
+                android:id="@+id/text_weather_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:textAllCaps="true"
+                android:textColor="@color/pink_light"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="@+id/text_degrees"
+                app:layout_constraintTop_toBottomOf="@+id/text_degrees"
+                tools:text="Cloudy" />
+
+            <TextView
+                android:id="@+id/text_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:textAllCaps="true"
+                android:textColor="@color/blue_light"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="@+id/text_weather_name"
+                app:layout_constraintTop_toBottomOf="@+id/text_weather_name"
+                tools:text="Los Angeles, CA" />
+
+            <TextView
+                android:id="@+id/text_ico"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/clean_weather_icons"
+                android:textColor="@color/pink_light"
+                android:textSize="110sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/text_degrees_symbol"
+                app:layout_constraintRight_toLeftOf="@+id/layout_humidity"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="l" />
+
+            <LinearLayout
+                android:id="@+id/layout_humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/background_humidity"
+                android:orientation="horizontal"
+                android:padding="3dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/text_degrees_symbol">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/drop"
+                    android:rotation="180"
+                    android:src="@drawable/ic_baseline_location_on_24" />
+
+                <TextView
+                    android:id="@+id/text_humidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="sans-serif"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:text="100%" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/text_day_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/blue_light"
+                android:textSize="50sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="@+id/layout_humidity"
+                app:layout_constraintRight_toRightOf="@+id/layout_humidity"
+                app:layout_constraintTop_toBottomOf="@+id/layout_humidity"
+                tools:text="30" />
+
+            <TextView
+                android:id="@+id/text_day_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-15dp"
+                android:fontFamily="sans-serif"
+                android:textAllCaps="true"
+                android:textColor="@color/blue_700"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="@+id/text_day_number"
+                app:layout_constraintRight_toRightOf="@+id/text_day_number"
+                app:layout_constraintTop_toBottomOf="@+id/text_day_number"
+                tools:text="MON" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

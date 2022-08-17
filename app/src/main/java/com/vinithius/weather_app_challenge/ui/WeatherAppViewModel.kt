@@ -12,20 +12,47 @@ import kotlinx.coroutines.launch
 
 class WeatherAppViewModel(private val repository: WeatherAppRepository) : ViewModel() {
 
-    private val _weatherLocation = MutableLiveData<List<BaseWeather>?>()
-    val weatherLocation: LiveData<List<BaseWeather>?>
-        get() = _weatherLocation
+    private val _listWeatherLocation = MutableLiveData<List<BaseWeather>?>()
+    val listWeatherLocation: LiveData<List<BaseWeather>?>
+        get() = _listWeatherLocation
+
+    private val _detailWeatherLocation = MutableLiveData<BaseWeather?>()
+    val detailWeatherLocation: LiveData<BaseWeather?>
+        get() = _detailWeatherLocation
+
+    private var _idWheater: Int = 0
+    val idWheater: Int
+        get() = _idWheater
+
+    fun setIdWheater(value: Int) {
+        _idWheater = value
+    }
+
+    fun resetIdWheater() {
+        _idWheater = 0
+    }
 
     fun getListWeatherLocation() {
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 repository.getWeatherByLocation()?.run {
-                    _weatherLocation.postValue(this)
+                    _listWeatherLocation.postValue(this)
                 }
             } catch (e: Exception) {
                 Log.e("Error weather", e.toString())
             }
         }
     }
+
+    fun getDetailWeatherLocation() {
+        try {
+            _listWeatherLocation.value?.find { it.id == _idWheater }?.run {
+                _detailWeatherLocation.postValue(this)
+            }
+        } catch (e: Exception) {
+            Log.e("Error weather", e.toString())
+        }
+    }
+
 
 }
