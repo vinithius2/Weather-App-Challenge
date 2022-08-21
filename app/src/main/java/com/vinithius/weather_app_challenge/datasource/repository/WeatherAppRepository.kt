@@ -1,5 +1,6 @@
 package com.vinithius.weather_app_challenge.datasource.repository
 
+import android.util.Log
 import com.vinithius.weather_app_challenge.datasource.response.BaseWeather
 
 class WeatherAppRepository(private val remoteDataSource: WeatherAppRemoteDataSource) {
@@ -27,6 +28,7 @@ class WeatherAppRepository(private val remoteDataSource: WeatherAppRemoteDataSou
             }
             defaultLocationWeather.toList()
         } catch (e: Exception) {
+            Log.e("getWeatherByLocation", e.toString())
             null
         }
     }

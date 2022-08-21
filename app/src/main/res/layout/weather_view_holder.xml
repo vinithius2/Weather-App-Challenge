@@ -14,7 +14,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="10dp">
 
             <TextView
                 android:id="@+id/text_degrees"
@@ -34,13 +35,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
+                android:text="@string/degrees_symbol"
                 android:textColor="@color/blue_light"
                 android:textSize="40sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/text_degrees"
                 app:layout_constraintLeft_toRightOf="@+id/text_degrees"
                 app:layout_constraintTop_toTopOf="@+id/text_degrees"
-                tools:text="º" />
+                app:layout_constraintVertical_bias="1.0" />
 
             <TextView
                 android:id="@+id/text_weather_name"
@@ -79,7 +80,7 @@
                 app:layout_constraintLeft_toRightOf="@+id/text_degrees_symbol"
                 app:layout_constraintRight_toLeftOf="@+id/layout_humidity"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="l" />
+                tools:text="A" />
 
             <LinearLayout
                 android:id="@+id/layout_humidity"

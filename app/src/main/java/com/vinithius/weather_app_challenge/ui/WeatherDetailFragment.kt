@@ -1,6 +1,7 @@
 package com.vinithius.weather_app_challenge.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,7 +35,26 @@ class WeatherDetailFragment : Fragment() {
 
     private fun observerWeatherDetail() {
         viewModel.detailWeatherLocation.observe(viewLifecycleOwner) { weather_location ->
-            binding.textLocation.text = weather_location?.name
+            weather_location?.let {
+                try {
+                    with(binding) {
+                        textLocation.text = it.name
+                        textDegData.text = it.wind.deg.toString()
+                        textSpeedData.text = it.wind.speed.toString()
+                        textGustData.text = it.wind.gust.toString()
+                        val humidity = "${it.main.humidity}%"
+                        textHumidityData.text = humidity
+                        textPressureData.text = it.main.pressure.toString()
+                        textFeelsLikeData.text =
+                            String.format("%.0fº", it.main.feels_like)
+                        textTempData.text = String.format("%.0fº", it.main.temp)
+                        textTempMaxData.text = String.format("%.0fº", it.main.temp_max)
+                        textTempMinData.text = String.format("%.0fº", it.main.temp_min)
+                    }
+                } catch (e: Exception) {
+                    Log.e("observerWeatherDetail", e.toString())
+                }
+            }
         }
     }
 

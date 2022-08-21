@@ -2,4 +2,16 @@
     <string name="app_name">Weather App</string>
     <string name="london">London</string>
     <string name="drop">Drop</string>
+    <string name="degrees_symbol">º</string>
+    <string name="temp">Temp:</string>
+    <string name="feels_like">Feels like:</string>
+    <string name="temp_min">Temp min:</string>
+    <string name="temp_max">Temp max:</string>
+    <string name="humidity">Humidity:</string>
+    <string name="speed">Speed:</string>
+    <string name="deg">Deg:</string>
+    <string name="gust">Gust:</string>
+    <string name="temperature">Temperature</string>
+    <string name="wind">Wind</string>
+    <string name="pressure">Pressure</string>
 </resources>

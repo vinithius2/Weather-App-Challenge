@@ -11,7 +11,7 @@ data class BaseWeather(
     val visibility: Int,
     val wind: Wind,
     val clouds: Clouds,
-    val dt: BigInteger,
+    val dt: Long,
     val sys: Sys,
     val timezone: Int,
     val name: String,
